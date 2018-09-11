@@ -73,26 +73,10 @@ RCT_EXPORT_METHOD(showImagePicker:(NSDictionary *)options callback:(RCTResponseS
         self.customButtons = [self.options objectForKey:@"customButtons"];
         for (NSString *button in self.customButtons) {
             NSString *title = [button valueForKey:@"title"];
-            switch ([button valueForKey:@"style"])
-             {
-                 case 'cancel':
-
-                      style = 1;
-
-                      break;
-
-                 case 'destructive':
-
-                      style = 2;
-
-                      break;
-
-                 default:
-                        style = 0;
-
-                      break;
-
-             }            
+            NSInteger style = 0;
+            if ([[button valueForKey:@"style"] isEqualToString:@"cancel"]) style = 1;
+            else if ([[button valueForKey:@"style"] isEqualToString:@"destructive"]) style = 2;
+            else style = 0;          
             UIAlertAction *customAction = [UIAlertAction actionWithTitle:title style:style handler:^(UIAlertAction * action) {
                 [self actionHandler:action];
             }];
