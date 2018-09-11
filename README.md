@@ -171,7 +171,7 @@ var ImagePicker = require('react-native-image-picker');
 var options = {
   title: 'Select Avatar',
   customButtons: [
-    {name: 'fb', title: 'Choose Photo from Facebook'},
+    {name: 'fb', title: 'Choose Photo from Facebook', style: 'destructive'},
   ],
   storageOptions: {
     skipBackup: true,
@@ -240,7 +240,7 @@ title | OK | OK | Specify `null` or empty string to remove the title
 cancelButtonTitle | OK | OK | Specify `null` or empty string to remove this button (Android only)
 takePhotoButtonTitle | OK | OK | Specify `null` or empty string to remove this button
 chooseFromLibraryButtonTitle | OK | OK | Specify `null` or empty string to remove this button
-customButtons | OK | OK | An array containing objects with the name and title of buttons
+customButtons | OK | OK | An array containing objects with the name, title and style ('default' |'cancel' |'destructive') of buttons
 cameraType | OK | - | 'front' or 'back'
 mediaType | OK | OK | 'photo', 'video', or 'mixed' on iOS, 'photo' or 'video' on Android
 maxWidth | OK | OK | Photos only
